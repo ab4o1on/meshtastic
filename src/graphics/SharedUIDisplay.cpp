@@ -88,17 +88,19 @@ void drawRoundedHighlight(OLEDDisplay *display, int16_t x, int16_t y, int16_t w,
 void drawCommonHeader(OLEDDisplay *display, int16_t x, int16_t y, const char *titleStr, bool force_no_invert, bool show_date)
 {
     constexpr int HEADER_OFFSET_Y = 1;
+    constexpr int HEADER_OFFSET_X = 20;
     y += HEADER_OFFSET_Y;
+    x += HEADER_OFFSET_X;
 
     display->setFont(FONT_SMALL);
     display->setTextAlignment(TEXT_ALIGN_LEFT);
 
-    const int xOffset = 4;
+    const int xOffset = -10;
     const int highlightHeight = FONT_HEIGHT_SMALL - 1;
     const bool isInverted = (config.display.displaymode != meshtastic_Config_DisplayConfig_DisplayMode_INVERTED);
     const bool isBold = config.display.heading_bold;
 
-    const int screenW = display->getWidth();
+    const int screenW = display->getWidth()-HEADER_OFFSET_X-20;
     const int screenH = display->getHeight();
 
     if (!force_no_invert) {
@@ -154,7 +156,7 @@ void drawCommonHeader(OLEDDisplay *display, int16_t x, int16_t y, const char *ti
     bool useHorizontalBattery = (currentResolution == ScreenResolution::High && screenW >= screenH);
     const int textY = y + (highlightHeight - FONT_HEIGHT_SMALL) / 2;
 
-    int batteryX = 1;
+    int batteryX = HEADER_OFFSET_X + 1;
     int batteryY = HEADER_OFFSET_Y + 1;
 #if !defined(M5STACK_UNITC6L)
     // === Battery Icons ===
