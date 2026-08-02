@@ -1,5 +1,4 @@
 #define PIN_BUZZER 11
-//#define BUTTON_PIN 5
 #define BATTERY_PIN 3
 #define ADC_MULTIPLIER 1.33
 #define ADC_CHANNEL ADC1_GPIO3_CHANNEL
@@ -38,24 +37,24 @@
 #define SCREEN_TRANSITION_FRAMERATE 5
 #define BRIGHTNESS_DEFAULT 130
 
-// E22 400M30S
+// E22 400M30S/400M22S
 #define E22_DIO1 44
 #define E22_BUSY 43
-//#define E22_NRST 48
+#define E22_NRST 48
 #define E22_MISO 47
 #define E22_MOSI 21
 #define E22_SCK 14
 #define E22_NSS 13
-//#define E22_RXEN 12
+#define E22_RXEN 12
 //#define TX_GAIN_LORA 10
 #define SX126X_CS E22_NSS
 #define LORA_SCK E22_SCK
 #define LORA_MOSI E22_MOSI
 #define LORA_MISO E22_MISO
-#define SX126X_RESET RADIOLIB_NC
+#define SX126X_RESET E22_NRST
 #define SX126X_BUSY E22_BUSY
 #define SX126X_DIO1 E22_DIO1
-#define SX126X_RXEN RADIOLIB_NC
+#define SX126X_RXEN E22_RXEN
 #define SX126X_DIO2_AS_RF_SWITCH
 #define SX126X_TXEN RADIOLIB_NC
 #define SX126X_MAX_POWER 22
@@ -65,11 +64,3 @@
 #define TCXO_OPTIONAL
 #define LORA_CS SX126X_CS
 #define LORA_DIO1 SX126X_DIO1
-
-// sd-card
-// #define HAS_SDCARD
-// #define SDCARD_USE_SPI1
-// #define SDCARD_CS 16
-// #define SPI_MISO  8
-// #define SPI_MOSI  17
-// #define SPI_SCK   18
