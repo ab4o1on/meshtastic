@@ -1,7 +1,7 @@
 #define PIN_BUZZER 11
 #define BATTERY_PIN 3
 #define ADC_MULTIPLIER 1.33
-#define ADC_CHANNEL ADC1_GPIO3_CHANNEL
+#define ADC_CHANNEL ADC_CHANNEL_2
 #define I2C_SCL 42
 #define I2C_SDA 2
 
@@ -16,6 +16,7 @@
 
 // IPS 1.69 280х240 ST7789
 #define USE_TFTDISPLAY 1
+#define HAS_SPI_TFT 1
 #define ST7789_CS 7
 #define ST7789_RS 15
 #define ST7789_SDA 17
